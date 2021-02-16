@@ -1,0 +1,48 @@
+body {
+  background-color: hsl(311, 100%, 97%);
+  height: 100vh;
+  position: relative;
+}
+
+.rating {
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  padding: 0;
+}
+
+.rating li {
+  list-style-type: none;
+}
+
+.rating-item {
+  cursor: pointer;
+  font-size: 4em;
+}
+
+.reset {
+  display: none;
+}
+
+/* Rellenar corazones hasta el activo */
+.rating-item::before {
+  content: "❤️";
+}
+
+/* Vaciar corazones a partir del activo */
+.rating-item.active ~ .rating-item::before {
+  content: "🤍";
+}
+
+/* Rellenar corazones hasta el efecto hover */
+.rating:hover .rating-item::before {
+  content: "❤️";
+}
+
+/* Vaciar corazones a partir del efecto hover */
+.rating-item:hover ~ .rating-item::before {
+  content: "🤍";
+}
